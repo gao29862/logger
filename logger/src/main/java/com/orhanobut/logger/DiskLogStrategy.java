@@ -66,6 +66,8 @@ public class DiskLogStrategy implements LogStrategy {
           } catch (IOException e1) { /* fail silently */ }
         }
       }
+      //must quit,otherwise writing to the log will keep generating threads
+      getLooper().quit();
     }
 
     /**
